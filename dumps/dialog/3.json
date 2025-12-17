@@ -1,0 +1,396 @@
+{
+  "intent": "I want to understand the structure of EU DORA regulation as it applies to the work of European payment service providers.",
+  "intention_descriptor": {
+    "categories": [
+      "Truth",
+      "Deep",
+      "Connect",
+      "Knowledge",
+      "Service",
+      "Responsibility"
+    ],
+    "vectors": [
+      "Knowledge",
+      "Deep",
+      "Connect",
+      "Responsibility"
+    ],
+    "summary": "User wants a structured understanding of the EU DORA regulation specifically focused on how it applies to European payment service providers (PSPs). The aim is to map DORA's structure and obligations onto PSP activities and compliance responsibilities.",
+    "reasoning": "The request seeks comprehension (not execution) of regulatory structure and applicability. It therefore requires sourcing and organizing factual regulatory text (Knowledge), interpreting mechanisms and obligations (Deep), connecting those obligations to PSP operations and existing frameworks (Connect), and highlighting compliance responsibilities and accountability (Responsibility). Truth is needed to ground claims; Service actions (execution) are minimal."
+  },
+  "learned_facts": [
+    {
+      "truth": "The user wants to understand the structure of the EU DORA regulation as it applies to European payment service providers.",
+      "deep": "Specifically, the user asked for an understanding of the regulation's structure (sections, obligations, roles, responsibilities) and how those map onto the work of payment service providers operating in the EU.",
+      "connect": "This connects to the EU Digital Operational Resilience Act (DORA), regulatory compliance for Payment Service Providers (PSPs), and the implementation/operational impact on PSP processes.",
+      "service": "The stated cause is the user's desire for clarity about applicability and structure—likely to inform compliance, operational changes, or knowledge building.",
+      "knowledge": "The observable effect is the user will use the resulting explanation to interpret DORA requirements in the context of PSP operations, governance, incident management, or third-party ICT risk management.",
+      "evolution": "This implies a temporal progression from current understanding to improved comprehension and possibly to implementation steps (analysis → planning → action), though no explicit timeline was given.",
+      "responsibility": "An implied action: produce a structured, targeted analysis showing DORA's parts and their relevance to PSP activities; the user may expect guidance or mapping to operational roles."
+    },
+    {
+      "truth": "The user's request is targeted at 'structure' rather than specific compliance advice or legal interpretation.",
+      "deep": "They are asking for a conceptual/organizational breakdown (how DORA is organized and which components apply to PSPs) rather than immediate legal counsel or step-by-step remediation plans.",
+      "connect": "This connects to document architecture (chapters, articles, obligations), applicability criteria, and mapping of regulatory provisions to business functions.",
+      "service": "Cause: a need to see the regulation's scaffolding so that parts relevant to PSPs can be identified and explored.",
+      "knowledge": "Effect: a structured summary will help the user prioritize which DORA elements to study next or to ask more specific follow-up questions about.",
+      "evolution": "Progression: from broad structural understanding toward targeted deep-dives when necessary.",
+      "responsibility": "Implied: provide a clear, navigable breakdown and indicate which sections are likely most pertinent to PSPs."
+    },
+    {
+      "truth": "The user explicitly framed the scope as 'European payment service providers'.",
+      "deep": "That limits applicability to entities subject to EU payment services frameworks (e.g., PSPs regulated under PSD2 and national laws) rather than non-financial firms or non-EU entities.",
+      "connect": "This connects DORA to PSP-specific activities: payment processing, account management, third-party service providers (e.g., cloud/ICT vendors), incident reporting, and operational resilience governance within PSPs.",
+      "service": "Cause: the user's domain relevance—PSPs need tailored insights because DORA's obligations may differ by type of financial entity.",
+      "knowledge": "Effect: the analysis should focus on obligations typically relevant to PSPs (ICT risk management, incident reporting, third-party risk, testing, governance) and flag where PSP-specific exemptions or differences exist (if any).",
+      "evolution": "Temporal: as DORA becomes enforced, PSPs will need to adapt governance and controls; the user may be preparing for that adaptation.",
+      "responsibility": "Implied: target the explanation to PSP operational roles, compliance officers, and technical teams involved in resilience and ICT risk."
+    },
+    {
+      "truth": "The user likely expects an actionable, comprehensible mapping rather than purely theoretical commentary.",
+      "deep": "Even though not explicitly stated, requesting 'structure... as it applies to the work' implies wanting applicability and relevance to day-to-day or governance tasks.",
+      "connect": "Connects regulatory text to day-to-day workstreams: policy, incident management, vendor management, business continuity, and security testing.",
+      "service": "Cause: practical need—either to inform internal stakeholders or to guide compliance readiness.",
+      "knowledge": "Effect: the user will use the structural mapping to identify responsible teams, gaps, and next steps within a PSP.",
+      "evolution": "Progression: from mapping to role-based responsibilities and possibly to implementation or compliance projects.",
+      "responsibility": "Implied: present the structure with examples of how specific articles translate into operational responsibilities for PSPs."
+    }
+  ],
+  "spark": {
+    "intent": "I want to understand the structure of EU DORA regulation as it applies to the work of European payment service providers.",
+    "intent_projection": {
+      "truth": "The user needs a clear map of how DORA reorganizes and mandates digital operational resilience for EU financial actors—especially payment service providers—because operational risk from ICT failures, cyber threats, and concentrated third‑party dependencies creates systemic risk and regulatory uncertainty that practitioners must resolve.",
+      "deep": "The intention carries layered concerns: legal compliance, operational continuity, vendor concentration, incident transparency, and testable assurance. Implicit questions include ‘what must we do?’, ‘who oversees us?’, ‘what counts as a major incident?’, and ‘how to structure contracts and tests to prove resilience?’ Assumptions include that organizations already have patchwork controls but need harmonized, auditable, and EU‑wide standards.",
+      "unity": "This intention sits at the intersection of financial regulation, cyber security, vendor risk management, incident management, and EU supervisory architecture. It resonates with PSD2/PSD3 security norms, NIS2 resilience goals, EBA/ESMA/ECB supervisory guidance, and operational practices across banks, PSPs, insurers, and market infrastructures.",
+      "service": "The intention functions as a translating bridge: turning a dense regulatory framework into actionable architecture for PSPs—governance, processes, vendor contracts, reporting flows, testing programmes and supervisory engagement—so that organizations can operationalize compliance and demonstrate resilience.",
+      "knowledge": "It frames information as structured artifacts: inventories, risk registers, incident timelines, test reports, contractual clauses and escalation matrices. It privileges templates, thresholds and evidence-based controls and drives inquiry toward gap analysis, impact mapping and simulation/testing outcomes.",
+      "evolution": "From initial compliance this intention can mature into proactive resilience: continuous threat intelligence sharing, integrated vendor risk ecosystems, automated testing and observability, and a culture where operational resilience becomes a business enabler rather than a compliance cost.",
+      "accountability": "Self-fulfilment requires clear ownership (board-level responsibility and an accountable ICT/resilience lead), measurable KPIs and SLAs, audit trails, documented decision points (change logs, contracts), scheduled tests and reporting, and governance mechanisms linking findings to remedial action with supervisory notification when required."
+    },
+    "concepts": [
+      {
+        "id": "scope_applicability",
+        "name": "Scope & Applicability",
+        "description": "Which entities DORA covers (credit institutions, payment service providers, e-money institutions, investment firms, crypto-asset service providers, market infrastructures, and ICT third-party providers) and territorial reach across EU member states.",
+        "confidence_score": "0.95",
+        "importance_score": "0.98"
+      },
+      {
+        "id": "ict_risk_management_framework",
+        "name": "ICT Risk Management Framework",
+        "description": "Continuous governance, policies, risk identification, classification, controls, cyber security measures, business continuity and disaster recovery as required by DORA.",
+        "confidence_score": "0.98",
+        "importance_score": "0.99"
+      },
+      {
+        "id": "incident_reporting_and_notification",
+        "name": "Incident Reporting & Notification",
+        "description": "Obligations to report ICT‑related incidents (including major incidents), required information, timelines and escalation paths to competent authorities and, where relevant, to EU supervisory bodies.",
+        "confidence_score": "0.97",
+        "importance_score": "0.99"
+      },
+      {
+        "id": "digital_operational_resilience_testing",
+        "name": "Digital Operational Resilience Testing",
+        "description": "Periodic and ad‑hoc testing programmes, including vulnerability management, penetration testing and threat-led exercises (e.g., TIBER-style red teaming) to demonstrate resilience.",
+        "confidence_score": "0.96",
+        "importance_score": "0.97"
+      },
+      {
+        "id": "third_party_risk_management",
+        "name": "Third-Party ICT Risk Management (TPRM)",
+        "description": "Due diligence, contractual clauses, exit strategies, concentration risk monitoring and ongoing oversight of ICT third-party providers (including cloud and managed service providers).",
+        "confidence_score": "0.99",
+        "importance_score": "0.99"
+      },
+      {
+        "id": "oversight_of_critical_third_parties",
+        "name": "Oversight of Critical Third-Party Providers",
+        "description": "EU-level oversight mechanism for designated critical ICT providers (designation by ESAs/NCAs), supervisory powers, reporting, and remediation actions for systemic ICT providers.",
+        "confidence_score": "0.95",
+        "importance_score": "0.98"
+      },
+      {
+        "id": "governance_and_accountability",
+        "name": "Governance & Accountability",
+        "description": "Board-level responsibility, appointed ICT/resilience officer, clear roles and escalation, and alignment with internal audit and compliance functions.",
+        "confidence_score": "0.97",
+        "importance_score": "0.98"
+      },
+      {
+        "id": "data_and_evidence_requirements",
+        "name": "Data & Evidence Requirements",
+        "description": "Inventories, logs, test reports, incident timelines, SLAs, KPIs and documented decision records required for supervisory review and audits.",
+        "confidence_score": "0.96",
+        "importance_score": "0.97"
+      },
+      {
+        "id": "concentration_risk_and_systemic_resilience",
+        "name": "Concentration Risk & Systemic Resilience",
+        "description": "Assessment and mitigation of systemic risk from dependence on a small number of third-party ICT providers and requirements to limit single points of failure.",
+        "confidence_score": "0.95",
+        "importance_score": "0.96"
+      },
+      {
+        "id": "contractual_and_procurement_clauses",
+        "name": "Contractual & Procurement Clauses",
+        "description": "Mandatory contract elements: service descriptions, SLAs, audit and access rights, security obligations, termination and exit plans, subcontracting rules and data localisation/portability where relevant.",
+        "confidence_score": "0.96",
+        "importance_score": "0.98"
+      },
+      {
+        "id": "supervisory_reporting_and_cooperation",
+        "name": "Supervisory Reporting & Cooperation",
+        "description": "Interaction with national competent authorities (NCAs), ESAs and other supervisory bodies for reporting, information exchange and coordinated oversight actions.",
+        "confidence_score": "0.95",
+        "importance_score": "0.97"
+      },
+      {
+        "id": "alignment_with_other_eu_rules",
+        "name": "Alignment with PSD2/NIS2 and Other EU Rules",
+        "description": "How DORA complements and interacts with PSD2, NIS2, GDPR, banking rules and sectoral guidance; avoiding duplication and ensuring consistent controls.",
+        "confidence_score": "0.94",
+        "importance_score": "0.95"
+      },
+      {
+        "id": "testing_and_remediation_metrics",
+        "name": "Testing & Remediation Metrics",
+        "description": "Key performance indicators for resilience testing (e.g., RTO/RPO, time-to-remediate, exploitability ratings), and mandatory follow-up actions and reporting on test outcomes.",
+        "confidence_score": "0.93",
+        "importance_score": "0.94"
+      },
+      {
+        "id": "implementation_timeline_and_deadlines",
+        "name": "Implementation Timeline & Deadlines",
+        "description": "DORA entry-into-application dates, transitional arrangements, and expected supervisory timelines to achieve compliance.",
+        "confidence_score": "0.90",
+        "importance_score": "0.92"
+      }
+    ],
+    "planned_tasks": [
+      {
+        "type": "user",
+        "text": "What kind of payment service provider are you (bank with PSP licence, e-money institution, payment institution, TPP under PSD2)? Do you operate in one Member State or across the EU? Roughly how large is the business (number of customers / transactions or revenue band)?",
+        "confidence": 95,
+        "importance": 95
+      },
+      {
+        "type": "user",
+        "text": "Do you already have (a) an ICT/third‑party inventory, (b) an incident reporting process, and (c) regular resilience testing? If yes, rate maturity: none / basic / defined / managed / optimised.",
+        "confidence": 90,
+        "importance": 90
+      },
+      {
+        "type": "internal",
+        "text": "Produce a concise mapping: DORA structure (titles/chapters) -> core obligations for PSPs -> concrete controls/artifacts (governance, inventory, incident timelines, testing, third-party contracts).",
+        "confidence": 85,
+        "importance": 100
+      },
+      {
+        "type": "external",
+        "text": "Fetch the DORA regulation text, EBA implementing technical standards and any ESA Q&A or templates on incident reporting and third‑party oversight to ensure authoritative references are used.",
+        "confidence": 80,
+        "importance": 95
+      },
+      {
+        "type": "user",
+        "text": "Which deliverable do you want first (summary/one‑page obligations map, compliance checklist, gap analysis template, incident reporting template, third‑party contract clauses, resilience-testing plan)?",
+        "confidence": 85,
+        "importance": 85
+      }
+    ],
+    "selected_tasks": [
+      {
+        "type": "internal",
+        "text": "Produce a concise mapping: DORA structure (titles/chapters) -> core obligations for PSPs -> concrete controls/artifacts (governance, inventory, incident timelines, testing, third-party contracts).",
+        "confidence": 85,
+        "importance": 100
+      }
+    ],
+    "content": [
+      {
+        "title": "Purpose & Map",
+        "header": "Concise mapping: DORA structure → PSP core obligations → Concrete controls/artifacts",
+        "content": "This mapping translates the DORA regulation’s structural chapters into direct obligations for Payment Service Providers (PSPs) and then into concrete, auditable controls and artifacts (governance, inventories, incident timelines, testing, third‑party contracts). It is organised by DORA’s operational chapters and links each section forward to the next (governance → incidents → testing → third‑party oversight → supervisory interaction).",
+        "question": "What is the overall mapping objective?",
+        "concepts": []
+      },
+      {
+        "title": "Chapter: ICT Risk Management (Governance & Organisation)",
+        "header": "Core obligations for PSPs",
+        "content": "Establish comprehensive ICT risk management framework integrated into corporate governance; assign board/accountable senior management responsibilities; maintain policies, procedures, inventories and regular risk assessments; ensure staff competence and continuity planning.",
+        "question": "What must PSPs do for ICT risk management?",
+        "concepts": [
+          {
+            "name": "Board responsibility"
+          },
+          {
+            "name": "ICT risk framework"
+          },
+          {
+            "name": "Business continuity"
+          }
+        ]
+      },
+      {
+        "title": "Controls / Artifacts — ICT Risk Management",
+        "header": "Concrete controls and artefacts (governance & inventory)",
+        "content": "Board-approved ICT risk management policy; ICT governance charter (roles: CISO, ICT risk owner); ICT asset & service inventory (systems, data flows, cloud services) mapped to business functions and criticality; business impact analysis (BIA) and RTO/RPO definitions; risk register with residual risk & mitigation plans; change control and configuration management logs; training records and competence matrix; vendor dependency map and concentration dashboard.",
+        "question": "What artifacts demonstrate compliance with governance obligations?",
+        "concepts": [
+          {
+            "name": "ICT asset inventory"
+          },
+          {
+            "name": "Risk register"
+          },
+          {
+            "name": "BIA"
+          }
+        ]
+      },
+      {
+        "title": "Chapter: ICT‑related Incident Management & Reporting",
+        "header": "Core obligations for PSPs",
+        "content": "Detect, classify and manage ICT incidents; maintain incident response capability and continuity measures; notify competent authorities and customers as required; share incident information following templates and timelines; perform root‑cause analysis and remediation.",
+        "question": "What are the incident management obligations?",
+        "concepts": []
+      },
+      {
+        "title": "Controls / Artifacts — Incident Management",
+        "header": "Concrete controls and artefacts (incident timelines & evidence)",
+        "content": "Incident response plan (IRP) and playbooks; detection & escalation matrix with severity classification criteria; incident timeline template (discovery time, containment actions, communications, recovery, impact metrics such as number of customers/services affected, financial/service impact); initial incident notification & follow‑up reports per supervisory templates; post‑incident root cause analysis (RCA) reports; lessons‑learned logs and remediation trackers; maintain tamper‑evident logs and SIEM/monitoring dashboards.",
+        "question": "Which documents & artefacts are needed for incidents?",
+        "concepts": [
+          {
+            "name": "Incident timeline"
+          },
+          {
+            "name": "RCA"
+          },
+          {
+            "name": "SIEM logs"
+          }
+        ]
+      },
+      {
+        "title": "Chapter: Digital Operational Resilience Testing",
+        "header": "Core obligations for PSPs",
+        "content": "Design and perform regular ICT testing proportionate to risk, including vulnerability management, penetration testing and, where applicable, advanced tests (e.g., threat‑led penetration tests). Ensure independence of testers, remediation of findings, and reporting of test outcomes to governance.",
+        "question": "What testing does DORA require PSPs to perform?",
+        "concepts": [
+          {
+            "name": "Penetration testing"
+          },
+          {
+            "name": "Vulnerability management"
+          }
+        ]
+      },
+      {
+        "title": "Controls / Artifacts — Testing",
+        "header": "Concrete controls and artefacts (testing programmes & records)",
+        "content": "Formal testing policy and annual test plan mapped to critical services; vulnerability management lifecycle (scan → triage → patching → verification); penetration test reports and remediation action logs; threat‑led pen test (TLPT) scope, rules of engagement and independent assessor reports (if applicable); exercise calendars, tabletop exercise scenarios and participant lists; test evidence repository and KPI dashboards showing time‑to‑remediate and residual vulnerability levels.",
+        "question": "Which artifacts show testing compliance?",
+        "concepts": [
+          {
+            "name": "Test plan"
+          },
+          {
+            "name": "Pen test report"
+          },
+          {
+            "name": "Remediation log"
+          }
+        ]
+      },
+      {
+        "title": "Chapter: ICT Third‑party Risk (Outsourcing & Concentration)",
+        "header": "Core obligations for PSPs",
+        "content": "Identify, assess and manage risks from ICT third‑party providers (TTPs); apply stronger governance for critical/outsource providers; embed contractual safeguards, exit strategies and right‑to‑audit provisions; monitor concentration risk and dependencies.",
+        "question": "How must PSPs manage third‑party ICT risk?",
+        "concepts": []
+      },
+      {
+        "title": "Controls / Artifacts — Third‑party Contracts & Oversight",
+        "header": "Concrete controls and artefacts (contracts, inventories, contingency)",
+        "content": "Third‑party register with service classification and criticality; due‑diligence checklists and security questionnaires; standard contractual clauses: clear SLAs, security & confidentiality obligations, audit and access rights, incident notification clauses, data location and sub‑contracting rules, exit/transition arrangements and contingency plans; concentration risk assessments and stress‑test scenarios; operational runbooks for switching providers and tested exit playbooks; supplier performance dashboards and periodic assurance reports (SOC, ISO 27001 certificates, penetration test evidence).",
+        "question": "What contractual and operational artifacts are required for third‑party risk?",
+        "concepts": [
+          {
+            "name": "Third-party register"
+          },
+          {
+            "name": "Contractual SLA"
+          },
+          {
+            "name": "Exit plan"
+          }
+        ]
+      },
+      {
+        "title": "Chapter: Information Sharing & Supervision",
+        "header": "Core obligations for PSPs",
+        "content": "Participate in secure information sharing arrangements where appropriate; comply with supervisory engagement and information requests; provide evidence of compliance and remediation actions when inspected; ensure logs and records are available for supervisory review.",
+        "question": "How should PSPs interact with supervisors and peers?",
+        "concepts": []
+      },
+      {
+        "title": "Controls / Artifacts — Supervisory & Sharing",
+        "header": "Concrete controls and artefacts (reporting & evidence)",
+        "content": "Supervisory reporting pack templates (incident reports, testing summaries, third‑party oversight summaries); evidence binder for audits (policies, inventories, incident timelines, test reports, supplier contracts); secure channels for intelligence sharing and information exchange policies; board dashboards with KPIs on ICT risk, incidents and vendor concentration.",
+        "question": "Which artifacts support supervisory engagement?",
+        "concepts": []
+      }
+    ],
+    "summary": {
+      "title": "DORA for PSPs — concise operational map",
+      "header": "How DORA reorganises digital operational resilience for European payment service providers",
+      "text": "This digest translates DORA’s structure into a clear set of obligations for PSPs and the concrete, auditable controls and artefacts that prove compliance. It follows DORA’s operational chapters: governance (ICT risk management), incident management & reporting, testing, third‑party oversight, and supervisory interaction — and points each to the specific documents, processes and evidence PSPs should own.",
+      "summary": "Short map: (1) Governance → board‑approved ICT policy, inventories, BIAs, risk registers; (2) Incidents → IRP, incident timelines, notifications and RCA; (3) Testing → vulnerability lifecycle, pen tests/TLPT, exercise records; (4) Third parties → supplier register, contracts with audit/exit clauses, concentration dashboards; (5) Supervision → reporting packs and evidence binders."
+    },
+    "followup_topics": [
+      {
+        "topic": "Create a prioritized gap‑analysis for a PSP",
+        "questions": "Do you want a checklist matched to your current artifacts (policy, inventory, contracts) and a prioritized remediation plan?",
+        "concepts": [
+          {
+            "name": "Gap analysis"
+          },
+          {
+            "name": "Prioritization"
+          }
+        ]
+      },
+      {
+        "topic": "Drafting DORA‑compliant third‑party contract clauses",
+        "questions": "Should I generate standard clause language for SLAs, audit rights, exit plans and incident notification tailored to PSPs?",
+        "concepts": [
+          {
+            "name": "Contract language"
+          },
+          {
+            "name": "SLA"
+          }
+        ]
+      },
+      {
+        "topic": "Design a TLPT plan or test program",
+        "questions": "Do you want a templated test plan (scope, ROE, evidence capture, remediation tracking) for tabletop, pen‑test and TLPT?",
+        "concepts": [
+          {
+            "name": "Testing plan"
+          },
+          {
+            "name": "TLPT"
+          }
+        ]
+      }
+    ],
+    "reflections": [
+      "I structured the mapping around DORA’s operational chapters to keep obligations traceable to the Regulation’s intent (governance → incidents → testing → third‑party → supervision).",
+      "I emphasised concrete, auditable artefacts practitioners can produce or point to during supervisory review (policies, inventories, timelines, test reports, contracts).",
+      "I avoided prescribing strict timelines or numeric thresholds because Member State competent authorities and ESAs provide implementing guidelines and templates that define precise timings and classifications; PSP obligations scale by size/criticality."
+    ]
+  }
+}
