@@ -6,27 +6,22 @@ from pydantic import BaseModel, Field
 from spark.models import TextResponse, ContentSection, FollowupTopic
 from spark.phases.connect.punit.models import PlannedTask
 from spark.phases.understand.cunit.models import IntentionProjection, Concept
-
-
+    
 class SparkState(BaseModel):
-    """
-    Source of the intent ( user, system )
-    """
-    # source: str
-
-    """
-    Phase of the intent 
-        gate  - selection of the dialog archetype, 
-        spark - general user message in the scope of the dialog, 
-        cunit - intent formulated by the system in the cunit
-        punit - intent formulated by the system in the punit
-    """
-    # phase: str
-
-    """
+    """ 
     Intention
     """
     intent: str
+
+    """
+    Intention descriptor
+    """
+    meta_intention_descriptor: Optional[IntentionDescriptor] = None
+
+    """
+    Learned facts
+    """
+    meta_learned_facts: list[LearnedFact] = Field(default_factory=list, title="Learned facts")
 
     """
     Incoming intent projection

@@ -1,16 +1,16 @@
 from __future__ import annotations
+
 from typing import Callable, Awaitable, Any, Optional, Dict, List
 from dataclasses import dataclass, field
-import asyncio
 
 from langgraph.graph import StateGraph, END
 from langgraph.graph.state import CompiledStateGraph
 
-from dialog.state import DialogState
 from persistence.persistence_layer import PersistenceLayer
+from spark.state import SparkState
 
 # Type aliases for clarity
-HandlerFunc = Callable[[DialogState, PersistenceLayer], Awaitable[dict]]
+HandlerFunc = Callable[[SparkState, PersistenceLayer], Awaitable[dict]]
 FactoryFunc = Callable[[], HandlerFunc]
 
 @dataclass
@@ -93,7 +93,7 @@ class SpiralBuilder:
         for factory in phase_def.aspect_factories:
             handlers.append(factory())
             
-        async def node_entry(state: DialogState) -> dict:
+        async def node_entry(state: SparkState) -> dict:
             # Execute all handlers (sequentially or parallel?)
             # Prompt implies we need to integrate results. 
             # Let's run them and collect results.
@@ -141,7 +141,7 @@ class SpiralBuilder:
 
         return node_entry
 
-    def _process_proposals(self, phase_name: str, result: dict, state: DialogState) -> dict:
+    def _process_proposals(self, phase_name: str, result: dict, state: SparkState) -> dict:
         """
         Mock implementation of proposal processing.
         In a real scenario, this would look up processors based on keys in `result` 
