@@ -8,7 +8,7 @@ from spark.state import SparkState
 from persistence.persistence_layer import PersistenceLayer
 
 
-async def meta_learn_aspect():
+def meta_learn_aspect():
     print("Meta: learn")
     
     meta = {
@@ -43,7 +43,7 @@ async def meta_learn_aspect():
     return meta, handler
 
 
-async def meta_deep_aspect():
+def meta_deep_aspect():
     print("Meta: deep")
     
     meta = {
@@ -62,7 +62,7 @@ async def meta_deep_aspect():
     return meta, handler
 
 
-async def understand_aspect():
+def understand_aspect():
     print("Phase: understand")
     
     meta = {
@@ -81,7 +81,7 @@ async def understand_aspect():
     return meta, handler
 
 
-async def connect_aspect():
+def connect_aspect():
     print("Phase: connect")
     
     meta = {
@@ -100,7 +100,7 @@ async def connect_aspect():
     return meta, handler
 
 
-async def service_aspect():
+def service_aspect():
     print("Phase: service")
     
     meta = {

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Callable, Awaitable, Any, Optional, Dict, List
+from typing import Callable, Awaitable, Any, Optional, Dict, List, Tuple
 from dataclasses import dataclass, field
 
 from langgraph.graph import StateGraph, END
@@ -11,7 +11,8 @@ from spark.state import SparkState
 
 # Type aliases for clarity
 HandlerFunc = Callable[[SparkState, PersistenceLayer], Awaitable[dict]]
-FactoryFunc = Callable[[], HandlerFunc]
+FactoryResult = Tuple[Dict[str, Any], HandlerFunc]
+FactoryFunc = Callable[[], FactoryResult]
 
 @dataclass
 class PhaseDefinition:
@@ -52,7 +53,7 @@ class SpiralBuilder:
         return self
 
     def build(self, persistence: Optional[PersistenceLayer] = None) -> CompiledStateGraph:
-        workflow = StateGraph(DialogState)
+        workflow = StateGraph(SparkState)
         
         # We need a dummy entry point or the first phase is the entry point
         # Assuming the first defined phase is the entry point.
@@ -88,10 +89,17 @@ class SpiralBuilder:
         
         # Instantiate handlers
         handlers = []
+        phase_metas = {} # Store metadata if needed
+        
         if phase_def.base_aspect_factory:
-            handlers.append(phase_def.base_aspect_factory())
+            meta, handler = phase_def.base_aspect_factory()
+            handlers.append((meta, handler))
+            phase_metas[meta.get("id", "base")] = meta
+            
         for factory in phase_def.aspect_factories:
-            handlers.append(factory())
+            meta, handler = factory()
+            handlers.append((meta, handler))
+            phase_metas[meta.get("id", "aspect")] = meta
             
         async def node_entry(state: SparkState) -> dict:
             # Execute all handlers (sequentially or parallel?)
@@ -101,53 +109,59 @@ class SpiralBuilder:
             # Note: The node function in LangGraph usually receives the state.
             # Our handlers expect (DialogState, PersistenceLayer).
             # We need to inject persistence if available.
-            # If persistence is not passed to build(), we might need a workaround or assume it's not used by these specific handlers 
-            # (though the signature in dialog/graph.py uses it).
-            # For now, I'll pass None if not provided, or better, require it in build() or handle it.
-            # But StateGraph nodes only take state (and config).
-            # If handlers need persistence, it typically must be passed via some context or closure.
-            # Here I am capturing `persistence` from `build` scope.
             
             results = []
             # Using partial functionality since handlers are async
-            for handler in handlers:
+            for meta, handler in handlers:
                 # Assuming handler signature is (state, persistence)
-                # If persistence is None, we might error if handler expects it.
-                # But let's assume valid persistence is passed to build OR handled gracefully.
                 res = await handler(state, persistence) # type: ignore
-                results.append(res)
+                results.append((meta, res))
                 
             # Process proposals / integrate results
-            # The prompt says: "results should be integrated back into LangGraph graph state via corresponding ... proposal processor functions"
-            # We need to merge the dicts returned by handlers into the state.
-            # LangGraph automagically merges dict updates if they match state keys.
-            # BUT the prompt mentions "proposal processors". 
-            # This implies complex logic: raw result -> processor -> state update.
-            
             combined_update = {}
-            for res in results:
-                # Here we would look up a processor for the keys in 'res'
-                # For this implementation, I will assume a default "merge" processor behavior 
-                # unless I find specific processor definitions.
-                # Since I don't have the processor registry, I will implement a generic integration
-                # that updates the state with the keys returned.
-                
-                # If there are specific keys that need "proposal processing", we'd do it here.
-                # I'll add a hook for it.
-                processed_res = self._process_proposals(phase_def.name, res, state)
+            for meta, res in results:
+                processed_res = self._process_proposals(phase_def.name, meta, res, state)
                 combined_update.update(processed_res)
                 
             return combined_update
 
         return node_entry
 
-    def _process_proposals(self, phase_name: str, result: dict, state: SparkState) -> dict:
+    def _process_proposals(self, phase_name: str, meta: dict, result: dict, state: SparkState) -> dict:
         """
-        Mock implementation of proposal processing.
-        In a real scenario, this would look up processors based on keys in `result` 
-        and the current `phase_name`.
+        Process proposals from handlers and integrate into state.
+        Mapping logic based on returned keys and meta information.
         """
-        # For now, just pass through. 
-        # The user prompt mentions "functions processors proposals" (plural).
-        # We assume direct mapping for now.
-        return result
+        updates = {}
+        
+        # Merge the raw result first (default behavior)
+        updates.update(result)
+        
+        from dialog.models import IntentionDescriptor
+        
+        # Specific proposal processing logic
+        # If result contains keys for IntentionDescriptor, construct it.
+        # Check if result has keys 'categories', 'vectors', 'summary', 'reasoning'
+        if all(k in result for k in ("categories", "vectors", "summary", "reasoning")):
+             # Create IntentionDescriptor
+             try:
+                 descriptor = IntentionDescriptor(**result)
+                 # Determine where to put it. 
+                 # If meta id is "meta.learn" or generic, putting in meta_intention_descriptor or intention_descriptor
+                 # SparkState has 'meta_intention_descriptor'.
+                 # Let's assign it there.
+                 updates["meta_intention_descriptor"] = descriptor
+                 
+                 # Clean up raw keys if we consumed them? 
+                 # Usually we might keep them or remove them. LangGraph merges updates.
+                 # If we return "categories": ..., it will try to set state.categories.
+                 # SparkState DOES NOT have "categories" field. 
+                 # So we MUST remove them from the update if SparkState is strict (Pydantic is strict by default on extra fields? No, depends on config, but usually fails or ignores).
+                 # Better to remove consumed keys.
+                 for k in ("categories", "vectors", "summary", "reasoning"):
+                     del updates[k]
+                     
+             except Exception as e:
+                 print(f"Error creating IntentionDescriptor: {e}")
+        
+        return updates

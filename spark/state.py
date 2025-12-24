@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from spark.models import TextResponse, ContentSection, FollowupTopic
 from spark.phases.connect.punit.models import PlannedTask
 from spark.phases.understand.cunit.models import IntentionProjection, Concept
+from dialog.models import IntentionDescriptor, LearnedFact
     
 class SparkState(BaseModel):
     """ 
