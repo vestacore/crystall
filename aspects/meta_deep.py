@@ -1,15 +1,7 @@
 
-import asyncio
-from typing import Any
-from unittest.mock import AsyncMock, MagicMock
-
-from builder import SpiralBuilder
 from spark.state import SparkState
 from persistence.persistence_layer import PersistenceLayer
-from exec_prompt import exec_prompt
-from dialog.models import IntentionDescriptor
-
-
+from units.deep_classify.handler import deep_classify
 
 def meta_deep_aspect():
     print("Meta: deep")
@@ -22,14 +14,8 @@ def meta_deep_aspect():
     async def handler(state: SparkState, persistence: PersistenceLayer):
         print("Meta: deep")
 
-        response = await exec_prompt(
-            prompt_name = "dialog/deep_classify",
-            intent = state.intent,
-            response_model = IntentionDescriptor
-        )
-
         state_update = {
-            "meta_intention_descriptor": response,
+            "meta_intention_descriptor": await deep_classify(state.intent),
         }
 
         return state_update

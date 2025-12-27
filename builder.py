@@ -9,6 +9,8 @@ from langgraph.graph.state import CompiledStateGraph
 from persistence.persistence_layer import PersistenceLayer
 from spark.state import SparkState
 
+from units.deep_classify.models import IntentionDescriptor
+
 # Type aliases for clarity
 HandlerFunc = Callable[[SparkState, PersistenceLayer], Awaitable[dict]]
 FactoryResult = Tuple[Dict[str, Any], HandlerFunc]
@@ -136,8 +138,6 @@ class SpiralBuilder:
         
         # Merge the raw result first (default behavior)
         updates.update(result)
-        
-        from dialog.models import IntentionDescriptor
         
         # Specific proposal processing logic
         # If result contains keys for IntentionDescriptor, construct it.

@@ -10,7 +10,7 @@ from langsmith.wrappers import wrap_openai
 
 # 1. Настройка окружения шаблонов
 template_env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader("prompts")
+    loader=jinja2.FileSystemLoader("units")
 )
 
 raw_client = AsyncOpenAI()
@@ -29,7 +29,7 @@ async def exec_prompt(prompt_name: str, intent: str, response_model: type[T], *a
     user_prompt = intent
 
     response = await client.chat.completions.create(
-        model="gpt-5-mini",
+        model="gpt-5.2",
         messages=[
             ChatCompletionSystemMessageParam(role="system", content=system_prompt),
             ChatCompletionUserMessageParam(role="user", content=user_prompt)

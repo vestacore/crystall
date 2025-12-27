@@ -3,11 +3,14 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field
 
-from spark.models import TextResponse, ContentSection, FollowupTopic
-from spark.phases.connect.punit.models import PlannedTask
-from spark.phases.understand.cunit.models import IntentionProjection, Concept
-from dialog.models import IntentionDescriptor, LearnedFact
-    
+from units.learn_facts.models import LearnedFact
+from units.deep_classify.models import IntentionDescriptor
+from units.project_intent.models import IntentionProjection
+from units.extract_concepts.models import Concept
+from units.plan_tasks.models import PlannedTask
+from units.examine_question.models import ContentSection, FollowupTopic
+from units.content_summary.models import ContentSummary
+
 class SparkState(BaseModel):
     """ 
     Intention
@@ -52,7 +55,7 @@ class SparkState(BaseModel):
     """
     Content summary
     """
-    summary: Optional[TextResponse] = None
+    summary: Optional[ContentSummary] = None
 
     """
     Followup topics

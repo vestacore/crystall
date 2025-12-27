@@ -1,8 +1,7 @@
 from pydantic import BaseModel, Field
 from pathlib import Path
 
-from dialog.models import LearnedFact
-from dialog.state import SparkContent
+from units.learn_facts.models import LearnedFact
 from persistence.persistence_layer import PersistenceLayer
 from spark.state import SparkState
 
@@ -24,7 +23,7 @@ class FilePersistenceState(BaseModel):
     """
     References to content sections produced by sparks
     """
-    content: list[SparkContent] = Field(default_factory=list)
+    # content: list[SparkContent] = Field(default_factory=list)
 
 
 
@@ -38,9 +37,9 @@ class FilePersistence(PersistenceLayer):
         """Add spark state into the persistence layer"""
         pass
 
-    def add_spark_content(self, content: list[SparkContent]) -> None:
-        """Add spark content sections into the persistence layer"""
-        pass
+    #def add_spark_content(self, content: list[SparkContent]) -> None:
+    #    """Add spark content sections into the persistence layer"""
+    #    pass
 
     def save_state(self):
         Path(f"../dumps/state/{self.version}.json").write_text(
